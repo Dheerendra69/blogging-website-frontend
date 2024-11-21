@@ -4,10 +4,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const creteArticle = async (values) => {
-
-  const { data } = await axios.post(`http://localhost:3001/api/articles`, {
-    article: { ...values.values },
-  });
+  const { data } = await axios.post(
+    `https://blogging-website-backend-bzho.onrender.com/api/articles`,
+    {
+      article: { ...values.values },
+    }
+  );
 
   console.log("createArticleresult", { data });
 
