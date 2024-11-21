@@ -4,11 +4,12 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const getArticleComments = async (slug) => {
+  // console.log("inside getArticleComments");
   const { data } = await axios.get(
-    `https://blogging-website-backend-bzho.onrender.com/api/articles/${slug}/comments`
+    `http://localhost:3001/api/articles/${slug}/comments`
   );
 
-  //   console.log("getCurrentUser", { data });
+  // console.log("getArticleComments: ", { data });
 
   return data;
 };

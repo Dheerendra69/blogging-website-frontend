@@ -3,20 +3,16 @@ import { ArticleComments, ArticleMeta } from "../components";
 import { useArticleQuery } from "../hooks";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "../css/Article.css";
+import Footer from "./Footer";
 function Article() {
-  //   const { data } = useArticleQuery()
-  //   const { title, description, body } = data.article
   const [article, setArticle] = useState([]);
   const { slug } = useParams();
 
-  console.log("article", article);
-
   const getArticleBySlug = async (slug) => {
     const { data } = await axios.get(
-      `https://blogging-website-backend-bzho.onrender.com/api/articles/${slug}`
+      `http://localhost:3001/api/articles/${slug}`
     );
-
-    console.log("getArticleBySlug", { data });
 
     setArticle(data.article);
   };
@@ -56,6 +52,7 @@ function Article() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

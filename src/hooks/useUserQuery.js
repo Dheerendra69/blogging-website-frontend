@@ -3,11 +3,8 @@ import React from "react";
 import axios from "axios";
 
 const getCurrentUser = async () => {
-  const { data } = await axios.get(
-    `https://blogging-website-backend-bzho.onrender.com/api/user`
-  );
+  const { data } = await axios.get(`http://localhost:3001/api/user`);
 
-  //   console.log("getCurrentUser", { data });
 
   return data;
 };

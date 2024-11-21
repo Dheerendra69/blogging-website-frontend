@@ -3,7 +3,6 @@ import { useAuth } from "../hooks";
 import { Link } from "react-router-dom";
 
 function ArticleComment({ comment }) {
-  console.log("comment", comment);
 
   const { author, body, createdAt, id } = comment;
   const { authUser } = useAuth();

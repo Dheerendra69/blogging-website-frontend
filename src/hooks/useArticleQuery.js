@@ -3,17 +3,13 @@ import { useParams } from "react-router-dom";
 
 const getArticleBySlug = async (slug) => {
   const { data } = await axios.get(
-    `https://blogging-website-backend-bzho.onrender.com/api/articles/${slug}`
+    `http://localhost:3001/api/articles/${slug}`
   );
-
-  console.log("getCurrentUser", { data });
-
   return data;
 };
 function useArticleQuery() {
   const { slug } = useParams();
 
-  console.log("slug", { slug });
   //   return useQuery(`/articles/${article ? article?.slug : slug}`, {
   //     enabled: !!slug || !!article?.slug,
   //     placeholderData: { article: {} },

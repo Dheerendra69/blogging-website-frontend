@@ -6,36 +6,38 @@ import axios from "axios";
 import { FormErrors, TagsInput } from "../components";
 // import { useArticleQuery } from "../hooks";
 import useCreateArticle from "../hooks/useCreateArticle";
+import "../css/Editor.css";
+import Footer from "./Footer";
 
 function Editor() {
   const navigate = useNavigate();
-//   const articleQuery = useArticleQuery();
+  //   const articleQuery = useArticleQuery();
   const queryClient = useQueryClient();
-//   const article = articleQuery?.data?.article || {};
-//   const { slug } = article;
+  //   const article = articleQuery?.data?.article || {};
+  //   const { slug } = article;
 
   const { isCreating, createArticle } = useCreateArticle();
 
   async function onSubmit(values, { setErrors }) {
     try {
-    //   const { data } = await axios[slug ? "put" : "post"](
-    //     `/articles${slug ? `/${slug}` : ""}`,
-    //     { article: values }
-    //   );
-      createArticle({values})
+      //   const { data } = await axios[slug ? "put" : "post"](
+      //     `/articles${slug ? `/${slug}` : ""}`,
+      //     { article: values }
+      //   );
+      createArticle({ values });
 
       if (slug) {
         queryClient.invalidateQueries(`/articles/${slug}`);
       } else {
         queryClient.invalidateQueries("/articles");
       }
-
     } catch (error) {
-      const { status, data } = error.response;
+      console.log("Error in editor.jsx", error);
+      // const { status, data } = error.response;
 
-      if (status === 422) {
-        setErrors(data.errors);
-      }
+      // if (status === 422) {
+      //   setErrors(data.errors);
+      // }
     }
   }
 
@@ -101,6 +103,7 @@ function Editor() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

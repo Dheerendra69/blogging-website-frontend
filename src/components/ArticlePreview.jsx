@@ -1,10 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 // import { useArticleQuery } from '../hooks'
 
 function ArticlePreview({ article }) {
   // const { data } = useArticleQuery({ article })
-  const { slug, author, createdAt, favoritesCount, favorited, title, body, tagList } = article
+  const {
+    slug,
+    author,
+    createdAt,
+    favoritesCount,
+    favorited,
+    title,
+    body,
+    tagList,
+  } = article;
 
   return (
     <div className="article-preview" key={slug}>
@@ -18,7 +27,6 @@ function ArticlePreview({ article }) {
           </Link>
           <span className="date">{new Date(createdAt).toDateString()}</span>
         </div>
-  
       </div>
       <Link to={`/article/${slug}`} className="preview-link">
         <h1>{title}</h1>
@@ -33,7 +41,7 @@ function ArticlePreview({ article }) {
         </ul>
       </Link>
     </div>
-  )
+  );
 }
 
-export default ArticlePreview
+export default ArticlePreview;

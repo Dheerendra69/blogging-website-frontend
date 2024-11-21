@@ -4,6 +4,8 @@ import { useAuth, useUserQuery } from "../hooks";
 import axios from "axios";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import "../css/Settings.css";
+import Footer from "./Footer";
 
 function Settings() {
   const { logout } = useAuth();
@@ -14,20 +16,17 @@ function Settings() {
 
   const navigate = useNavigate();
 
-  console.log("Settings", {
-    isCurrentUserLoading,
-    currentUser,
-    currentUserError,
-  });
+  // console.log("Settings", {
+  //   isCurrentUserLoading,
+  //   currentUser,
+  //   currentUserError,
+  // });
 
   async function onSubmit(values, { setErrors }) {
     try {
-      const { data } = await axios.put(
-        `https://blogging-website-backend-bzho.onrender.com/api/user`,
-        {
-          user: values,
-        }
-      );
+      const { data } = await axios.put(`http://localhost:3001/api/user`, {
+        user: values,
+      });
 
       const updatedUsername = data?.user?.username;
 
@@ -133,6 +132,7 @@ function Settings() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,27 +1,22 @@
-import React from 'react'
-import { isEmpty, isNil } from 'lodash-es'
-import { useArticlesQuery } from '../hooks'
-import ArticlePreview from './ArticlePreview'
-
-
+import React from "react";
+import { isEmpty, isNil } from "lodash-es";
+import { useArticlesQuery } from "../hooks";
+import ArticlePreview from "./ArticlePreview";
+import "../css/ArticleList.css";
 
 function ArticleList() {
-  const { articles } = useArticlesQuery()
+  const { articles } = useArticlesQuery();
 
-  console.log('ArticleList',{articles})
-
-
-
-  if (isEmpty(articles)) return <p className="article-preview">No articles are here... yet.</p>
+  if (isEmpty(articles))
+    return <p className="article-preview">No articles are here... yet.</p>;
 
   return (
-    <>
+    <div className="ArticleList">
       {articles.map((article) => (
         <ArticlePreview key={article.slug} article={article} />
       ))}
-     
-    </>
-  )
+    </div>
+  );
 }
 
-export default ArticleList
+export default ArticleList;

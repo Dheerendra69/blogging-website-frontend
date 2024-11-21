@@ -4,10 +4,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const createCommentApi = async (values) => {
-  console.log("creteArticle", { values });
 
   const { data } = await axios.post(
-    `https://blogging-website-backend-bzho.onrender.com/api/articles/${values.slug}/comments`,
+    `http://localhost:3001/api/articles/${values.slug}/comments`,
     { ...values.values }
   );
 

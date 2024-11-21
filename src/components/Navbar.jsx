@@ -5,12 +5,11 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   const { isAuth, authUser } = useAuth();
 
-  console.log("authUser", { isAuth, authUser });
   return (
     <nav className="navbar navbar-light">
       <div className="container">
         <NavLink activeClassName="active" className="navbar-brand" to="/" end>
-          Blogging App
+          Yatra Vrittant
         </NavLink>
         <ul className="nav navbar-nav pull-xs-right">
           <li className="nav-item">
@@ -44,6 +43,16 @@ function Navbar() {
                 >
                   {/* <i className="ion-compose"/> */}
                   &nbsp; Settings
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="active"
+                  className="navbar-brand"
+                  to="/about"
+                >
+                  {/* <i className="ion-compose"/> */}
+                  &nbsp; About
                 </NavLink>
               </li>
               <li className="nav-item">
