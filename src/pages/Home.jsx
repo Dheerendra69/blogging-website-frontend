@@ -36,7 +36,7 @@ function Home() {
       <div className="banner">
         <div className="container">
           <h1 className="logo-font">Blogging</h1>
-          <p>A place to share your knowledge.</p>
+          <p>A place to share your journey.</p>
         </div>
       </div>
       <div className="container page">
